@@ -12,7 +12,10 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install && npm install -g serve
 
       - name: Build
         run: npm run build
+
+      - name: Start
+        run: serve -s build
