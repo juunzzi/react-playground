@@ -1,8 +1,5 @@
 name: Run lighthouse CI When Push
-on:
-  push:
-    branches:
-      - master
+on: [push]
 jobs:
   lhci:
     name: Lighthouse CI
@@ -26,7 +23,7 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ WdAQ3VD2G6t3MBEK:28356116:3LFP77PA }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm install -g @lhci/cli
           lhci autorun || echo "Fail to Run Lighthouse CI!"
